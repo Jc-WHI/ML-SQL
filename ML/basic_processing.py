@@ -3,7 +3,7 @@ import sys
 import json 
 import pandas as pd
 
-def read_csv_rows(file_path, num_rows=1000):
+def read_csv_rows(file_path, num_rows=100000):
     with open(file_path) as fl:
         reader = csv.reader(fl, delimiter=",", quotechar='"')
         headers = next(reader)  
@@ -16,3 +16,4 @@ column_names, rows = read_csv_rows(csv_file_path)
 
 df = pd.DataFrame(rows, columns=column_names)
 #to do list : json labeling 
+df.to_json("data.json")
